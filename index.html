@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Txxcrypt- Trading Community</title>
+    <title>Txxcrypt - Trading Community</title>
     <link rel="stylesheet" href="new.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -34,7 +35,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-container">
-            <div class="hero-left">
+            <div class="hero-left" data-aos="fade-right">
                 <div class="steps-card">
                     <h2 class="steps-title">JOIN IN 2 SIMPLE STEPS</h2>
                     
@@ -72,7 +73,7 @@
             </div>
 
             <div class="hero-right">
-                <div class="hero-content">
+                <div class="hero-content" data-aos="fade-left">
                     <h1 class="hero-title">BECOME A MEMBER OF THE BEST TRADING COMMUNITY AND REPLICATE OUR TRADES NOW!</h1>
                     <p class="hero-subtitle">Join our elite community of traders receiving daily signals from professional analysts. No subscription required.</p>
                 </div>
@@ -84,18 +85,88 @@
     <section class="about" id="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">
-                    <div class="about-placeholder">
-                        <svg viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="150" cy="100" r="50" fill="#d4af37"/>
-                            <path d="M 100 180 Q 150 150 200 180 L 200 250 Q 150 280 100 250 Z" fill="#d4af37"/>
+                <div class="about-image" data-aos="zoom-in">
+                    <div class="about-illustration">
+                        <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Central Signal Source -->
+                            <circle cx="200" cy="200" r="40" fill="#d4af37" opacity="0.9">
+                                <animate attributeName="r" values="40;45;40" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="200" cy="200" r="30" fill="#FFD700" opacity="0.8"/>
+                            
+                            <!-- Signal waves -->
+                            <circle cx="200" cy="200" r="60" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.6">
+                                <animate attributeName="r" values="60;120;60" dur="3s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle cx="200" cy="200" r="80" fill="none" stroke="#d4af37" stroke-width="2" opacity="0.4">
+                                <animate attributeName="r" values="80;140;80" dur="3s" begin="1s" repeatCount="indefinite"/>
+                                <animate attributeName="opacity" values="0.4;0;0.4" dur="3s" begin="1s" repeatCount="indefinite"/>
+                            </circle>
+                            
+                            <!-- Member nodes (people receiving signals) -->
+                            <!-- Top member -->
+                            <g transform="translate(200, 80)">
+                                <circle r="20" fill="#333" opacity="0.8"/>
+                                <circle cy="-5" r="8" fill="#fff" opacity="0.9"/>
+                                <ellipse cy="8" rx="12" ry="15" fill="#fff" opacity="0.9"/>
+                            </g>
+                            
+                            <!-- Right member -->
+                            <g transform="translate(320, 200)">
+                                <circle r="20" fill="#333" opacity="0.8"/>
+                                <circle cy="-5" r="8" fill="#fff" opacity="0.9"/>
+                                <ellipse cy="8" rx="12" ry="15" fill="#fff" opacity="0.9"/>
+                            </g>
+                            
+                            <!-- Bottom member -->
+                            <g transform="translate(200, 320)">
+                                <circle r="20" fill="#333" opacity="0.8"/>
+                                <circle cy="-5" r="8" fill="#fff" opacity="0.9"/>
+                                <ellipse cy="8" rx="12" ry="15" fill="#fff" opacity="0.9"/>
+                            </g>
+                            
+                            <!-- Left member -->
+                            <g transform="translate(80, 200)">
+                                <circle r="20" fill="#333" opacity="0.8"/>
+                                <circle cy="-5" r="8" fill="#fff" opacity="0.9"/>
+                                <ellipse cy="8" rx="12" ry="15" fill="#fff" opacity="0.9"/>
+                            </g>
+                            
+                            <!-- Signal lines with animation -->
+                            <line x1="200" y1="200" x2="200" y2="100" stroke="#d4af37" stroke-width="3" opacity="0.7" stroke-dasharray="5,5">
+                                <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+                            </line>
+                            <line x1="200" y1="200" x2="300" y2="200" stroke="#d4af37" stroke-width="3" opacity="0.7" stroke-dasharray="5,5">
+                                <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+                            </line>
+                            <line x1="200" y1="200" x2="200" y2="300" stroke="#d4af37" stroke-width="3" opacity="0.7" stroke-dasharray="5,5">
+                                <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+                            </line>
+                            <line x1="200" y1="200" x2="100" y2="200" stroke="#d4af37" stroke-width="3" opacity="0.7" stroke-dasharray="5,5">
+                                <animate attributeName="stroke-dashoffset" from="0" to="10" dur="1s" repeatCount="indefinite"/>
+                            </line>
+                            
+                            <!-- Signal particles -->
+                            <circle r="4" fill="#FFD700">
+                                <animateMotion path="M 200,200 L 200,100" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle r="4" fill="#FFD700">
+                                <animateMotion path="M 200,200 L 300,200" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle r="4" fill="#FFD700">
+                                <animateMotion path="M 200,200 L 200,300" dur="2s" repeatCount="indefinite"/>
+                            </circle>
+                            <circle r="4" fill="#FFD700">
+                                <animateMotion path="M 200,200 L 100,200" dur="2s" repeatCount="indefinite"/>
+                            </circle>
                         </svg>
                     </div>
                 </div>
-                <div class="about-text">
-                    <h2>About Our Founder</h2>
-                    <p>With over 15 years of experience in financial markets, our founder established GoldHunterWorld to democratize access to professional trading signals. What started as a personal trading journal has evolved into a thriving community of thousands of successful traders.</p>
-                    <p>Our mission is simple: provide accurate, timely trading signals that help our members make informed decisions and achieve their financial goals.</p>
+                <div class="about-text" data-aos="fade-left">
+                    <h2>How Txxcrypt Works</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Our platform connects expert traders with aspiring investors through real-time signal distribution.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Each signal is carefully analyzed and sent directly to all community members instantly.</p>
                 </div>
             </div>
         </div>
@@ -104,24 +175,24 @@
     <!-- Why Join Section -->
     <section class="why-join" id="why-join">
         <div class="container">
-            <h2 class="section-title">Why Join Txxcrypt?</h2>
+            <h2 class="section-title" data-aos="fade-up">Why Join Txxcrypt?</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up">
                     <div class="feature-icon">📊</div>
                     <h3>Free Daily Signals</h3>
                     <p>Receive expert trading signals every day, completely free. No hidden fees or surprise charges.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up">
                     <div class="feature-icon">👥</div>
                     <h3>Expert Team</h3>
                     <p>Our team consists of professional traders with decades of combined market experience.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up">
                     <div class="feature-icon">🕐</div>
                     <h3>24/7 Support</h3>
                     <p>Get help whenever you need it. Our support team is always available to assist you.</p>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up">
                     <div class="feature-icon">✨</div>
                     <h3>No Subscription</h3>
                     <p>Join our community without any subscription fees. Access all features for free.</p>
@@ -133,9 +204,9 @@
     <!-- Daily Signals Section -->
     <section class="signals" id="signals">
         <div class="container">
-            <h2 class="section-title">Today's Trading Signals</h2>
+            <h2 class="section-title" data-aos="fade-up">Today's Trading Signals</h2>
             <div class="signals-grid">
-                <div class="signal-card">
+                <div class="signal-card" data-aos="flip-left">
                     <div class="signal-header">
                         <span class="signal-pair">EUR/USD</span>
                         <span class="signal-type buy">BUY</span>
@@ -149,7 +220,7 @@
                     <p class="signal-time">Posted 2 hours ago</p>
                 </div>
 
-                <div class="signal-card">
+                <div class="signal-card" data-aos="flip-left">
                     <div class="signal-header">
                         <span class="signal-pair">GBP/USD</span>
                         <span class="signal-type sell">SELL</span>
@@ -163,7 +234,7 @@
                     <p class="signal-time">Posted 4 hours ago</p>
                 </div>
 
-                <div class="signal-card">
+                <div class="signal-card" data-aos="flip-left">
                     <div class="signal-header">
                         <span class="signal-pair">GOLD</span>
                         <span class="signal-type buy">BUY</span>
@@ -177,7 +248,7 @@
                     <p class="signal-time">Posted 6 hours ago</p>
                 </div>
 
-                <div class="signal-card">
+                <div class="signal-card" data-aos="flip-left">
                     <div class="signal-header">
                         <span class="signal-pair">BTC/USD</span>
                         <span class="signal-type buy">BUY</span>
@@ -197,9 +268,9 @@
     <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
+            <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
             <div class="faq-container">
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up">
                     <button class="faq-question" onclick="toggleFAQ(this)">
                         <span>How accurate are your trading signals?</span>
                         <span class="faq-icon">+</span>
@@ -209,7 +280,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up">
                     <button class="faq-question" onclick="toggleFAQ(this)">
                         <span>Is there really no cost to join?</span>
                         <span class="faq-icon">+</span>
@@ -219,7 +290,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up">
                     <button class="faq-question" onclick="toggleFAQ(this)">
                         <span>How often do you send trading signals?</span>
                         <span class="faq-icon">+</span>
@@ -229,7 +300,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up">
                     <button class="faq-question" onclick="toggleFAQ(this)">
                         <span>What markets do you cover?</span>
                         <span class="faq-icon">+</span>
@@ -239,7 +310,7 @@
                     </div>
                 </div>
 
-                <div class="faq-item">
+                <div class="faq-item" data-aos="fade-up">
                     <button class="faq-question" onclick="toggleFAQ(this)">
                         <span>Do I need trading experience to join?</span>
                         <span class="faq-icon">+</span>
@@ -255,7 +326,7 @@
     <!-- Join Section -->
     <section class="join" id="join">
         <div class="container">
-            <div class="join-content">
+            <div class="join-content" data-aos="zoom-in">
                 <h2>Ready to Start Trading Smarter?</h2>
                 <p>Join thousands of successful traders in our community. Get free daily signals and expert guidance.</p>
                 <a href="https://t.me/Txxcrypt" target="_blank" class="btn btn-primary btn-large">Join Our Telegram Community</a>
@@ -295,6 +366,7 @@
         </div>
     </footer>
 
-    <script src="new.css"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="new.js"></script>
 </body>
 </html>
