@@ -64,6 +64,12 @@ body {
     text-decoration: none;
 }
 
+.logo-image {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
 .logo-icon {
     font-size: 28px;
 }
@@ -798,6 +804,10 @@ body {
 
     .logo-icon {
         font-size: 22px;
+    }
+
+    .logo-image {
+        height: 35px;
     }
 
     .hero {
