@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoldHunter - Trading Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Section */
+        .header {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 20px;
+            /* Add your logo here */
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #cccccc;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Hero Section with Screenshots */
+        .hero-screenshots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            padding: 60px 20px;
+            flex-wrap: wrap;
+        }
+
+        .screenshot-frame {
+            width: 280px;
+            height: auto;
+            border-radius: 30px;
+            border: 3px solid #d4af37;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+        }
+
+        .screenshot-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #f4d03f);
+            color: #000000;
+            padding: 18px 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #d4af37;
+            margin-bottom: 60px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .feature-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 80px 20px;
+            background-color: #111111;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #d4af37;
+            clip-path: polygon(0 0, 85% 0, 100% 100%, 0 85%);
+            z-index: 1;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h2 {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        /* Trading Signals Section */
+        .signals-section {
+            padding: 80px 20px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .signals-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .signals-text h2 {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .signals-text p {
+            font-size: 1.1rem;
+            color: #cccccc;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .signals-image {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .phone-mockup {
+            width: 100%;
+            max-width: 350px;
+            height: auto;
+        }
+
+        .phone-mockup img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 20px;
+            background-color: #111111;
+        }
+
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: rgba(212, 175, 55, 0.1);
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background-color: rgba(212, 175, 55, 0.15);
+        }
+
+        .faq-arrow {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-answer {
+            padding: 0 30px 25px;
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999999;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .screenshot-frame {
+                width: 240px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                flex-direction: column;
+            }
+
+            .about-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .signals-section {
+                flex-direction: column-reverse;
+            }
+
+            .signals-image {
+                flex: 0 0 auto;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <section class="header">
+        <div class="logo">
+            <!-- Add your logo image here -->
+            <img src="your-logo.png" alt="GoldHunter Logo">
+        </div>
+        <h1>BECOME A MEMBER OF THE BEST TRADING COMMUNITY<br>AND REPLICATE OUR TRADES NOW !</h1>
+    </section>
+
+    <!-- Steps Section -->
+    <section class="steps-section">
+        <div class="container">
+            <h2 class="section-title">STEP 1 - DOWNLOAD TELEGRAM</h2>
+            <div class="hero-screenshots">
+                <div class="screenshot-frame">
+                    <!-- Add screenshot 1 here -->
+                    <img src="screenshot1.png" alt="App Screenshot 1">
+                </div>
+                <div class="screenshot-frame">
+                    <!-- Add screenshot 2 here -->
+                    <img src="screenshot2.png" alt="App Screenshot 2">
+                </div>
+                <div class="screenshot-frame">
+                    <!-- Add screenshot 3 here -->
+                    <img src="screenshot3.png" alt="App Screenshot 3">
+                </div>
+                <div class="screenshot-frame">
+                    <!-- Add screenshot 4 here -->
+                    <img src="screenshot4.png" alt="App Screenshot 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title">STEP 2 – GO TO MY TELEGRAM GROUP<br>CLICK ON "JOIN MY TELEGRAM" 👇</h2>
+            <a href="#" class="cta-button">JOIN MY TELEGRAM</a>
+            <p style="margin-top: 30px; font-size: 1.1rem;">This group is aimed at <strong>daring individuals</strong> who want to make<br>profits on the stock markets, <strong>without</strong> the need for prior<br><strong>experience!</strong></p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <!-- Add profile image here -->
+                    <img src="profile.jpg" alt="Paul - GoldHunter">
+                </div>
+                <div class="about-text">
+                    <h2>KNOW EVERYTHING ABOUT ME.</h2>
+                    <p>Paul, an experienced and passionate trader, has spent several years mastering the financial markets. His knowledge in day trading led him to create Goldhunter Academy, focusing on providing crucial trading insights and educational tools.</p>
+                    <p>At Goldhunter Academy, Paul emphasizes analysis and strategic decision-making, empowering traders through clear, actionable signals and expert guidance to achieve success in the markets.</p>
+                    <p>Join Goldhunter to explore financial opportunities, enhance your trading skills, and be guided by precise analyses and expert advice for long-term success in your trading journey.</p>
+                    <a href="#" class="cta-button" style="margin-top: 20px;">JOIN MY TELEGRAM</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">4 GOOD REASONS TO JOIN US.</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h3>NO PAYMENT OR<br>SUBSCRIPTION REQUIRED.</h3>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>DAILY SIGNALS 100% FREE</h3>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👑</div>
+                    <h3>TEAM OF EXPERTS<br>AVAILABLE AND ATTENTIVE.</h3>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👤</div>
+                    <h3>SUPPORT AVAILABLE 7/7 TO<br>ASSIST YOU.</h3>
+                </div>
+            </div>
+            <div class="cta-section">
+                <a href="#" class="cta-button">JOIN MY TELEGRAM</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Signals Section -->
+    <section class="signals-section">
+        <div class="container" style="display: flex; gap: 60px; align-items: center; flex-wrap: wrap;">
+            <div class="signals-text" style="flex: 1; min-width: 300px;">
+                <h2>DAILY FREE TRADING SIGNALS FOR MAXIMUM PROFIT</h2>
+                <p>Get access to multiple high-quality, free trading signals every day through our Telegram channel. Stay ahead with valuable insights to make informed decisions and boost your profits in the trading market.</p>
+                <p>These signals provide a unique opportunity to stay ahead in the fast-moving trading world and enhance your financial outcomes.</p>
+            </div>
+            <div class="signals-image" style="flex: 0 0 400px;">
+                <div class="phone-mockup">
+                    <!-- Add phone mockup image here -->
+                    <img src="phone-mockup.png" alt="Trading App Mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">THE ANSWERS TO YOUR QUESTIONS.</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        HOW TO JOIN MY TELEGRAM CHANNEL?
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        WHO CAN JOIN THE TELEGRAM GROUP?
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ARE THERE CHARGES FOR SIGNALS AND ACCESS TO THE CANAL?
+                        <span class="faq-arrow">▼</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="disclaimer">
+        <div class="container">
+            <p>Make sure you are prepared to accept financial risk, as we are not responsible for any losses to your wallet.</p>
+        </div>
+    </section>
+
+</body>
+</html>
